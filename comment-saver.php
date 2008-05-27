@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Comment Saver
-Description: Saves comment text before it is submitted.
+Description: Saves comment text in a temporary cookie before it is submitted.
 Author: Will Norris
 Author URI: http://willnorris.com/
 Version: trunk
