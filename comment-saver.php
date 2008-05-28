@@ -13,7 +13,8 @@ if  ( !class_exists('CommentSaver') ) {
 
 		/** Get path for cookie. */
 		function get_path() {
-			$path = parse_url(get_option('home'), PHP_URL_PATH);
+			$url_bits = parse_url(get_option('home'));
+			$path = $url_bits['path'];
 			return $path ? $path : '/';
 		}
 
