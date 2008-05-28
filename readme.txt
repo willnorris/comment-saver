@@ -3,7 +3,7 @@ Contributors: wnorris
 Tags: comments
 Requires at least: 2.2
 Tested up to: 2.5.1
-Stable tag: 1.0
+Stable tag: 1.1
 
 Save comment content in a cookie in case something goes wrong while posting.
 
@@ -31,6 +31,8 @@ This plugin follows the [standard WordPress installation method][]:
 
 == Changelog ==
 
-= version 1.0 =
+= version 1.1 =
+- remove accidental test code (switch back to using pure js to set cookie)
 
+= version 1.0 =
 - initial release
