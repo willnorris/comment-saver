@@ -3,7 +3,7 @@ Contributors: wnorris
 Tags: comments
 Requires at least: 2.2
 Tested up to: 2.5.1
-Stable tag: 1.1
+Stable tag: 1.2
 
 Save comment content in a cookie in case something goes wrong while posting.
 
@@ -30,6 +30,9 @@ This plugin follows the [standard WordPress installation method][]:
 [standard WordPress installation method]: http://codex.wordpress.org/Managing_Plugins#Installing_Plugins
 
 == Changelog ==
+
+= version 1.2 =
+- remove accidental php5 dependency
 
 = version 1.1 =
 - remove accidental test code (switch back to using pure js to set cookie)
