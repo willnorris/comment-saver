@@ -22,7 +22,7 @@ if  ( !class_exists('CommentSaver') ) {
 		function js_setup() {
 			if (is_single() || is_comments_popup()) {
 				wp_enqueue_script( 'jquery' );
-				wp_enqueue_script('jquery.cookie', '/wp-content/plugins/comment-saver/jquery.cookie.min.js', array('jquery'));
+				wp_enqueue_script('jquery.cookie', plugins_url('comment-saver') . '/jquery.cookie.min.js', array('jquery'));
 			}
 		}
 
