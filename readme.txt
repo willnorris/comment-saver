@@ -1,9 +1,9 @@
 === Comment Saver ===
 Contributors: wnorris
 Tags: comments
-Requires at least: 2.2
-Tested up to: 2.5.1
-Stable tag: 1.2
+Requires at least: 2.6
+Tested up to: 2.6.2
+Stable tag: 1.3
 
 Save comment content in a cookie in case something goes wrong while posting.
 
@@ -31,11 +31,15 @@ This plugin follows the [standard WordPress installation method][]:
 
 == Changelog ==
 
+= version 1.3 = 
+ - use plugins_url (plugin now requires WP 2.6)
+ - code cleanup
+
 = version 1.2 =
-- remove accidental php5 dependency
+ - remove accidental php5 dependency
 
 = version 1.1 =
-- remove accidental test code (switch back to using pure js to set cookie)
+ - remove accidental test code (switch back to using pure js to set cookie)
 
 = version 1.0 =
-- initial release
+ - initial release
