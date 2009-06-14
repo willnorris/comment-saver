@@ -2,8 +2,8 @@
 Contributors: wnorris
 Tags: comments
 Requires at least: 2.8
-Tested up to: 2.6.2
-Stable tag: 1.3
+Tested up to: 2.8
+Stable tag: 1.4
 
 Save comment content in a cookie in case something goes wrong while posting.
 
@@ -30,6 +30,10 @@ This plugin follows the [standard WordPress installation method][]:
 [standard WordPress installation method]: http://codex.wordpress.org/Managing_Plugins#Installing_Plugins
 
 == Changelog ==
+
+= version 1.4 =
+ - load jQuery.cookie in footer (plugin now requires 2.8)
+ - don't call cookie stuff into jQuery ready
 
 = version 1.3 = 
  - use plugins_url (plugin now requires WP 2.6)
