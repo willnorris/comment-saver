@@ -1,7 +1,7 @@
 === Comment Saver ===
 Contributors: wnorris
 Tags: comments
-Requires at least: 2.6
+Requires at least: 2.8
 Tested up to: 2.6.2
 Stable tag: 1.3
 
