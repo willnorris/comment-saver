@@ -5,14 +5,14 @@ Description: Saves comment text in a temporary cookie before it is submitted.
 Author: Will Norris
 Plugin URI: http://wordpress.org/extend/plugins/comment-saver/
 Author URI: http://willnorris.com/
-Version: trunk
+Version: 1.3
 License: Dual GPL (http://www.fsf.org/licensing/licenses/info/GPLv2.html) and Modified BSD (http://www.fsf.org/licensing/licenses/index_html#ModifiedBSD)
 */
 
 
 add_action('comment_form', 'comment_saver_form');
 add_filter('comment_post_redirect', 'comment_saver_cleanup', 10, 2);
-add_action('wp_head', 'comment_saver_js', 9);
+add_action('wp', 'comment_saver_js');
 
 
 /** 
@@ -30,7 +30,7 @@ function comment_saver_cookie_path() {
  */
 function comment_saver_js() {
 	if (is_single() || is_comments_popup()) {
-		wp_enqueue_script('jquery.cookie', plugins_url('comment-saver') . '/jquery.cookie.min.js', array('jquery'));
+		wp_enqueue_script('jquery.cookie', plugins_url('comment-saver/jquery.cookie.min.js'), array('jquery'), false, true);
 	}
 }
 
@@ -44,12 +44,14 @@ function comment_saver_form($id) {
 
 	echo '
 	<script type="text/javascript">
-		jQuery("#commentform").submit(function() {
-			jQuery.cookie("' . $cookieName . '", jQuery("#comment").val(), {expires: (1/24), path: "' . $path . '"});
+		jQuery(function() {
+			jQuery("#commentform").submit(function() {
+				jQuery.cookie("' . $cookieName . '", jQuery("#comment").val(), {expires: (1/24), path: "' . $path . '"});
+			});
+			if (jQuery("#comment").val() == "") {
+				jQuery("#comment").val(jQuery.cookie("' . $cookieName . '"));
+			}
 		});
-		if (jQuery("#comment").val() == "") {
-			jQuery("#comment").val(jQuery.cookie("' . $cookieName . '"));
-		}
 	</script>';
 }
 
