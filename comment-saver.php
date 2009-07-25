@@ -5,7 +5,7 @@ Description: Saves comment text in a temporary cookie before it is submitted.
 Author: Will Norris
 Plugin URI: http://wordpress.org/extend/plugins/comment-saver/
 Author URI: http://willnorris.com/
-Version: 1.3
+Version: 1.4
 License: Dual GPL (http://www.fsf.org/licensing/licenses/info/GPLv2.html) and Modified BSD (http://www.fsf.org/licensing/licenses/index_html#ModifiedBSD)
 */
 
@@ -20,8 +20,8 @@ add_action('wp', 'comment_saver_js');
  */
 function comment_saver_cookie_path() {
 	$parts = parse_url(get_option('home'));
-	$path = $parts['path'];
-	return $path ? $path : '/';
+	$path = array_key_exists('path', $parts) ? $parts['path'] : '/';
+	return $path;
 }
 
 
