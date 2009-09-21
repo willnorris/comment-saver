@@ -49,7 +49,10 @@ function comment_saver_form($id) {
 				jQuery.cookie("' . $cookieName . '", jQuery("#comment").val(), {expires: (1/24), path: "' . $path . '"});
 			});
 			if (jQuery("#comment").val() == "") {
-				jQuery("#comment").val(jQuery.cookie("' . $cookieName . '"));
+				var cookieValue = jQuery.cookie("' . $cookieName . '");
+				if (cookieValue != null) {
+					jQuery("#comment").val(cookieValue));
+				}
 			}
 		});
 	</script>';
