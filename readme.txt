@@ -1,5 +1,5 @@
 === Comment Saver ===
-Contributors: wnorris
+Contributors: willnorris
 Tags: comments
 Requires at least: 2.8
 Tested up to: 2.8
