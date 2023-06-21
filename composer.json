@@ -1,0 +1,26 @@
+{
+    "name": "willnorris/comment-saver",
+    "description": "Saves comment text in a temporary cookie before it is submitted.",
+    "license": "GPL-2.0-or-later",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "Will Norris",
+            "email": "will@willnorris.com",
+            "homepage": "https://willnorris.com/",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://wordpress.org/plugins/comment-saver/",
+    "require": {
+        "php": "^5.6 || 7.* || >=8.0 <8.3"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.28"
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
+    }
+}
