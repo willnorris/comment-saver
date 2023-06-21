@@ -1,14 +1,15 @@
 <?php
-/*
-Plugin Name: Comment Saver
-Description: Saves comment text in a temporary cookie before it is submitted.
-Author: Will Norris
-Plugin URI: http://wordpress.org/extend/plugins/comment-saver/
-Author URI: http://willnorris.com/
-Version: 1.4
-License: Dual GPL (http://www.fsf.org/licensing/licenses/info/GPLv2.html) and Modified BSD (http://www.fsf.org/licensing/licenses/index_html#ModifiedBSD)
-*/
-
+/**
+ * Plugin Name: Comment Saver
+ * Description: Saves comment text in a temporary cookie before it is submitted.
+ * Author: Will Norris
+ * Plugin URI: http://wordpress.org/extend/plugins/comment-saver/
+ * Author URI: http://willnorris.com/
+ * Version: 1.4
+ * License: Dual GPL (http://www.fsf.org/licensing/licenses/info/GPLv2.html) and Modified BSD (http://www.fsf.org/licensing/licenses/index_html#ModifiedBSD)
+ *
+ * @package comment-saver
+ */
 
 add_action( 'comment_form', 'comment_saver_form' );
 add_filter( 'comment_post_redirect', 'comment_saver_cleanup', 10, 2 );
