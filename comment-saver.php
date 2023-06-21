@@ -39,17 +39,17 @@ function comment_saver_js() {
  * Add jQuery actions to save and restore comment.
  */
 function comment_saver_form( $id ) {
-	$cookieName = 'comment_saver_post' . $id;
-	$path       = comment_saver_cookie_path();
+	$cookie_name = 'comment_saver_post' . $id;
+	$path        = comment_saver_cookie_path();
 
 	echo '
 	<script type="text/javascript">
 		jQuery(function() {
 			jQuery("#commentform").submit(function() {
-				jQuery.cookie("' . $cookieName . '", jQuery("#comment").val(), {expires: (1/24), path: "' . $path . '"});
+				jQuery.cookie("' . $cookie_name . '", jQuery("#comment").val(), {expires: (1/24), path: "' . $path . '"});
 			});
 			if (jQuery("#comment").val() == "") {
-				var cookieValue = jQuery.cookie("' . $cookieName . '");
+				var cookieValue = jQuery.cookie("' . $cookie_name . '");
 				if (cookieValue != null) {
 					jQuery("#comment").val(cookieValue));
 				}
