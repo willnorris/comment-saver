@@ -15,7 +15,6 @@ add_action( 'comment_form', 'comment_saver_form' );
 add_filter( 'comment_post_redirect', 'comment_saver_cleanup', 10, 2 );
 add_action( 'wp', 'comment_saver_js' );
 
-
 /**
  * Get path for comment saver cookie.
  */
@@ -25,7 +24,6 @@ function comment_saver_cookie_path() {
 	return $path;
 }
 
-
 /**
  * Setup require javascript.
  */
@@ -34,7 +32,6 @@ function comment_saver_js() {
 		wp_enqueue_script( 'jquery.cookie', plugins_url( 'comment-saver/jquery.cookie.min.js' ), array( 'jquery' ), false, true );
 	}
 }
-
 
 /**
  * Add jQuery actions to save and restore comment.
@@ -59,7 +56,6 @@ function comment_saver_form( $id ) {
 	</script>';
 }
 
-
 /**
  * Cleanup comment saver cookie.
  */
@@ -68,5 +64,3 @@ function comment_saver_cleanup( $location, $comment ) {
 	setcookie( 'comment_saver_post' . $comment->comment_post_ID, null, -1, $path );
 	return $location;
 }
-
-
