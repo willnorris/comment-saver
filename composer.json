@@ -16,11 +16,14 @@
         "php": "^5.6 || 7.* || >=8.0 <8.3"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "^2.28"
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "ergebnis/composer-normalize": "^2.28",
+        "wp-coding-standards/wpcs": "^2.3"
     },
     "config": {
         "allow-plugins": {
-            "ergebnis/composer-normalize": true
+            "ergebnis/composer-normalize": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     }
 }
