@@ -29,7 +29,7 @@ function comment_saver_cookie_path() {
  */
 function comment_saver_js() {
 	if ( is_single() || is_comments_popup() ) {
-		wp_enqueue_script( 'jquery.cookie', plugins_url( 'comment-saver/jquery.cookie.min.js' ), array( 'jquery' ), false, true );
+		wp_enqueue_script( 'jquery.cookie', plugins_url( 'comment-saver/jquery.cookie.min.js' ), array( 'jquery' ), '1.0', true );
 	}
 }
 
