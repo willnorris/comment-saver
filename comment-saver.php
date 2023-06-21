@@ -19,7 +19,7 @@ add_action( 'wp', 'comment_saver_js' );
  * Get path for comment saver cookie.
  */
 function comment_saver_cookie_path() {
-	$parts = parse_url( get_option( 'home' ) );
+	$parts = wp_parse_url( get_option( 'home' ) );
 	$path  = array_key_exists( 'path', $parts ) ? $parts['path'] : '/';
 	return $path;
 }
