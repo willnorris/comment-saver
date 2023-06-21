@@ -35,6 +35,8 @@ function comment_saver_js() {
 
 /**
  * Add jQuery actions to save and restore comment.
+ *
+ * @param int $id The post ID.
  */
 function comment_saver_form( $id ) {
 	$cookie_name = 'comment_saver_post' . $id;
@@ -58,6 +60,11 @@ function comment_saver_form( $id ) {
 
 /**
  * Cleanup comment saver cookie.
+ *
+ * @param string     $location The 'redirect_to' URI sent via $_POST.
+ * @param WP_Comment $comment Comment object.
+ *
+ * @return string
  */
 function comment_saver_cleanup( $location, $comment ) {
 	$path = comment_saver_cookie_path();
