@@ -46,10 +46,10 @@ function comment_saver_form( $id ) {
 	<script type="text/javascript">
 		jQuery(function() {
 			jQuery("#commentform").submit(function() {
-				jQuery.cookie("' . $cookie_name . '", jQuery("#comment").val(), {expires: (1/24), path: "' . $path . '"});
+				jQuery.cookie("' . esc_js( $cookie_name ) . '", jQuery("#comment").val(), {expires: (1/24), path: "' . esc_js( $path ) . '"});
 			});
 			if (jQuery("#comment").val() == "") {
-				var cookieValue = jQuery.cookie("' . $cookie_name . '");
+				var cookieValue = jQuery.cookie("' . esc_js( $cookie_name ) . '");
 				if (cookieValue != null) {
 					jQuery("#comment").val(cookieValue));
 				}
