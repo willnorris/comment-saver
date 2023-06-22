@@ -1,0 +1,31 @@
+name: E2E Test
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  e2e-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install WordPress
+      run: docker compose -f e2e/docker-compose.yml run --rm wpcli wp core install --url=localhost:8080 --title="Comment Saver Test Site" --admin_user=e2e --admin_password=e2e --admin_email=e2e@comment-saver.localhost
+    - name: Use pretty permalinks
+      run: docker compose -f e2e/docker-compose.yml run --rm wpcli wp rewrite structure '/%postname%/'
+    - name: Enable the display of comments without approval
+      run: docker compose -f e2e/docker-compose.yml run --rm wpcli wp option update comment_previously_approved 0
+    - name: Activate Comment Saver plugin
+      run: docker compose -f e2e/docker-compose.yml run --rm wpcli wp plugin activate comment-saver
+    - name: Install dependencies for the E2E tests
+      run: docker compose -f e2e/docker-compose.yml run --rm e2e npm install
+    - name: Run the E2E tests
+      run: docker compose -f e2e/docker-compose.yml run --rm e2e npm run test
+    - name: Retain the test results
+      uses: actions/upload-artifact@v3
+      if: failure()
+      with:
+        name: test-results
+        path: e2e/test-results/
+        retention-days: 1
+    - name: Stop Docker and clean up
+      if: always()
+      run: docker compose -f e2e/docker-compose.yml down -v --remove-orphans
