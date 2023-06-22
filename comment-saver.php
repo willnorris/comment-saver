@@ -51,7 +51,7 @@ function comment_saver_form( $id ) {
 			if (jQuery("#comment").val() == "") {
 				var cookieValue = jQuery.cookie("' . esc_js( $cookie_name ) . '");
 				if (cookieValue != null) {
-					jQuery("#comment").val(cookieValue));
+					jQuery("#comment").val(cookieValue);
 				}
 			}
 		});
