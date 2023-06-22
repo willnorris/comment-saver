@@ -1,0 +1,16 @@
+{
+    "name": "comment-saver-e2e-test",
+    "devDependencies": {
+        "@playwright/test": "^1.35.1",
+        "dotenv": "^16.3.1",
+        "prettier": "^2.8.8"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "singleQuote": true
+    },
+    "scripts": {
+        "format": "npx prettier ./tests ./*.{ts,json} --write",
+        "test": "npx playwright test"
+    }
+}
