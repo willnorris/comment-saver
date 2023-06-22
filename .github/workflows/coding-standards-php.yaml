@@ -1,0 +1,24 @@
+name: Coding standards analysis PHP
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**.php'
+      - 'composer.*'
+jobs:
+  coding-standards-php:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer, cs2pr
+          coverage: none
+      - name: Validate Composer files
+        run: composer validate
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v2
+      - name: Run PHP_CodeSniffer
+        run: ./vendor/bin/phpcs
