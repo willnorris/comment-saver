@@ -68,6 +68,6 @@ function comment_saver_form( $id ) {
  */
 function comment_saver_cleanup( $location, $comment ) {
 	$path = comment_saver_cookie_path();
-	setcookie( 'comment_saver_post' . $comment->comment_post_ID, null, -1, $path );
+	setcookie( 'comment_saver_post' . $comment->comment_post_ID, '', -1, $path );
 	return $location;
 }
