@@ -3,7 +3,7 @@ Contributors: willnorris
 Tags: comments
 Requires at least: 2.8
 Tested up to: 2.8
-Stable tag: 1.4
+Stable tag: 1.5
 
 Save comment content in a cookie in case something goes wrong while posting.
 
