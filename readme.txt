@@ -2,8 +2,8 @@
 Contributors: willnorris
 Tags: comments
 Requires at least: 2.8
-Tested up to: 2.8
-Stable tag: 1.5
+Tested up to: 6.2.2
+Stable tag: 1.6
 
 Save comment content in a cookie in case something goes wrong while posting.
 
@@ -16,7 +16,7 @@ if the user forgot to include their name and email address and those fields are
 required, the comment may be lost on some browsers.  When the user returns to
 the comment form, Comment Saver will automatically populate the comment box if
 the cookie is still set.  It will remove the temporary cookie once the comment
-has been successfully submitted, or after one hour.  
+has been successfully submitted, or after one hour.
 
 
 == Installation ==
@@ -31,11 +31,20 @@ This plugin follows the [standard WordPress installation method][]:
 
 == Changelog ==
 
+= version 1.6 =
+ - fix wordpress.org publishing
+
+= version 1.5 =
+ - all changes this release thanks to @meszarosrob
+ - fix PHP compatibility issues
+ - adhere to WordPress coding standards
+ - remove dependency on jQuery
+
 = version 1.4 =
  - load jQuery.cookie in footer (plugin now requires 2.8)
  - don't call cookie stuff into jQuery ready
 
-= version 1.3 = 
+= version 1.3 =
  - use plugins_url (plugin now requires WP 2.6)
  - code cleanup
 
