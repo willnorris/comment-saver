@@ -11,9 +11,8 @@
  * @package comment-saver
  */
 
-add_action( 'comment_form', 'comment_saver_form' );
 add_filter( 'comment_post_redirect', 'comment_saver_cleanup', 10, 2 );
-add_action( 'wp', 'comment_saver_js' );
+add_action( 'wp_enqueue_scripts', 'comment_saver_js' );
 
 /**
  * Get path for comment saver cookie.
@@ -28,34 +27,19 @@ function comment_saver_cookie_path() {
  * Setup require javascript.
  */
 function comment_saver_js() {
-	if ( is_single() ) {
-		wp_enqueue_script( 'jquery.cookie', plugins_url( 'comment-saver/jquery.cookie.min.js' ), array( 'jquery' ), '1.0', true );
+	if ( ! is_singular() ) {
+		return;
 	}
-}
 
-/**
- * Add jQuery actions to save and restore comment.
- *
- * @param int $id The post ID.
- */
-function comment_saver_form( $id ) {
-	$cookie_name = 'comment_saver_post' . $id;
-	$path        = comment_saver_cookie_path();
-
-	echo '
-	<script type="text/javascript">
-		jQuery(function() {
-			jQuery("#commentform").submit(function() {
-				jQuery.cookie("' . esc_js( $cookie_name ) . '", jQuery("#comment").val(), {expires: (1/24), path: "' . esc_js( $path ) . '"});
-			});
-			if (jQuery("#comment").val() == "") {
-				var cookieValue = jQuery.cookie("' . esc_js( $cookie_name ) . '");
-				if (cookieValue != null) {
-					jQuery("#comment").val(cookieValue);
-				}
-			}
-		});
-	</script>';
+	wp_enqueue_script( 'comment-saver', plugin_dir_url( __FILE__ ) . 'comment-saver.js', array(), '1.4', true );
+	wp_localize_script(
+		'comment-saver',
+		'comment_saver_cookie',
+		array(
+			'name' => 'comment_saver_post' . get_the_ID(),
+			'path' => comment_saver_cookie_path(),
+		)
+	);
 }
 
 /**
